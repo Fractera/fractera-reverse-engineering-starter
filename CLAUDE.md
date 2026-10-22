@@ -122,6 +122,15 @@ A refused `reply` prints the rules: answer again without that content — do not
 Samples: `npm run test:a2a-guard`.
 <!-- PROOF 4 END -->
 
+## Reverse engineering — what this element does (node step 563)
+
+The node turns this element on for one task and off right after it (owner 2026-10-22:
+«по умолчанию выключенным … отработать задачу и выключить»). Your work in such a task: study the product — a website, or a package and SDK (npm and JavaScript, Python,
+.NET, a native library, Android, WASM) — with REA from the core (`npm run rea -- …`, no MCP) and the browser without a window
+(`npm run browser:start -- <url>`, `npm run browser:stop`), and write one report: skill `reverse-engineer` (it runs as a subagent on
+the strongest model). The report form lives only in that skill; the product quiz of the other elements reads it. Never copy the
+product's code, texts, images, design or data; never sign in or pass any protection.
+
 ## Protocols — how you talk and to whom
 
 Fractera has five protocols of its own (owner 2026-10-11, 2026-10-19); a native element has two: **H2A** — your person and you;

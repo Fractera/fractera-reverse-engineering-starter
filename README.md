@@ -12,9 +12,21 @@ copy the product's code, texts, images, design or data.
 
 ## Today: a body, turned off
 
-Step 563-1 built only the body: the element folder, its passport and node contract, a record in the core registry and the install
-by the node (built, never started). `npm run element:power -- reverse status` in the core prints the reason. The browser, the
-analysis skill and the report come in 563-2 and later.
+Step 563-1 built the body: the element folder, its passport and node contract, a record in the core registry and the install by
+the node (built, never started). `npm run element:power -- reverse status` in the core prints the reason.
+
+Step 563-2 gave it its tools (owner 2026-10-22: the analysis covers SDKs too):
+
+| Command | What |
+|---|---|
+| `npm run rea -- <command> … [--save <file>]` | REA from the core's single copy (`<node>/data/tools/rea`, 6.7.0), no MCP; `--save` keeps a huge answer in a file and prints its digest |
+| `npm run browser:start -- <url>` · `browser:stop` · `browser:status` | Chrome of this machine without a window, its own profile in this element's data, the debugging port on the loopback |
+| skill `reverse-engineer` | the analysis of a website or an SDK (npm and JavaScript, Python, .NET, native, Android, WASM) and the one report form the product quiz reads |
+
+What REA analyses, by its own README: native binaries, Go and Rust, WASM, JavaScript and Electron, websites, network captures, .NET
+assemblies, Android, Flutter, firmware, packages and resources. An SDK is analysed in the form it ships in. Targets that need an
+engine REA does not install (JADX and a JDK, WABT, Ghidra, Hopper, IDA, Binwalk) are named in the report, never installed by the agent.
+Measured on 2026-10-22: the browser without a window, 9 processes, ~375 MB of its own memory on lagrix.dev.
 
 ---
 

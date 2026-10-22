@@ -4,6 +4,10 @@
   "private": true,
   "scripts": {
     "check:routes": "node scripts/check-routes.mjs",
+    "rea": "node scripts/rea.mjs",
+    "browser:start": "node scripts/browser.mjs start",
+    "browser:stop": "node scripts/browser.mjs stop",
+    "browser:status": "node scripts/browser.mjs status",
     "pages:refresh": "node scripts/refresh-pages.mjs",
     "describe:publish": "node scripts/describe-publish.mjs",
     "door:add": "node scripts/door-add.mjs",
