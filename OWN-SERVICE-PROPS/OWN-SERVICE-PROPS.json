@@ -1,0 +1,31 @@
+{
+  "id": "reverse",
+  "name": "Fractera Reverse Engineering",
+  "shortDescription": "The node's reverse engineering tool: it is meant to study how a finished site or app works and report it in the product's own words, so an element can plan its own version.",
+  "longDescription": "A built-in element that the node turns on only for a task and off right after it, because the work is heavy and rare. An element that wants to build something like an existing product asks the node; the node turns this element on, its agent studies the product in a browser without a window and writes a report: roles, scenarios, entities, rules, pages and where the data comes from. The product quiz turns the report into stages of development. It studies how a product works; it does not copy the product's code, texts, images, design or data.\n\nToday only the body exists: the element is installed, built and turned off. The browser, the analysis and the report come in the next steps.",
+  "accepts": "Nothing yet: the element is turned off by default, and the node turns it on for one reverse engineering task.",
+  "returns": "Nothing yet.",
+  "designSkill": "impeccable",
+  "isFracteraArchitecture": true,
+  "framework": "next",
+  "elementType": "native",
+  "visibility": "node",
+  "calls": [
+    "auth",
+    "data",
+    "config",
+    "design"
+  ],
+  "messengers": {
+    "h2a": true,
+    "h2h": false,
+    "a2a": false
+  },
+  "power": {
+    "default": "off",
+    "reason": {
+      "en": "Turned on by the node for a reverse engineering task",
+      "ru": "Включается узлом на время задачи реверс-инжиниринга"
+    }
+  }
+}
