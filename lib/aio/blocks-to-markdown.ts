@@ -47,6 +47,8 @@ function lines(block: Block, widget?: WidgetText): string[] {
     case 'block-warning-card':
       return [`> **${block.title}** ${block.text}`]
     // 423: типографика элемента — сама почти Markdown.
+    case 'block-faq':
+      return [`## ${block.title}`, ...block.items.flatMap((f) => ['', `**${f.q}**`, f.a])]
     case 'text-h2':
       return [`## ${block.text}`]
     case 'text-h3':

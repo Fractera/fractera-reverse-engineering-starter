@@ -46,6 +46,11 @@ const MESSENGERS = [
   { href: "/messenger-h2a", label: "H2A Messenger" },
 ]
 
+function blocksLink(lang: string): DrawerLink[] {
+  const page = branchChild(["(protectedLayer)", "admin"], "blocks")
+  return page ? [{ href: `/${lang}/admin/blocks`, label: wordsIn(page, lang).title, roles: ARCHITECT_LAYER_ROLES }] : []
+}
+
 export function accountLinks(lang: string): DrawerLink[] {
   return [
     ...MESSENGERS.map((m) => ({ href: `/${lang}${m.href}`, label: m.label, roles: ARCHITECT_LAYER_ROLES })),
@@ -58,6 +63,9 @@ export function accountLinks(lang: string): DrawerLink[] {
       label: ARCHITECT_TITLE[lang] ?? ARCHITECT_TITLE.en,
       roles: ARCHITECT_LAYER_ROLES,
     },
+    // 577-11 (владелец 2026-10-23: «в правом меню кроме кнопки страницы архитектора ты можешь поставить кнопку блоки этого элемента»):
+    // ребёнок ветки admin `_pages/blocks/`, подпись — из его данных, роли — слоя архитектора.
+    ...blocksLink(lang),
     // 314-2: таблица пользователей — ребёнок ветки admin (`admin/_pages/users/`); подпись — из её данных.
     ...usersLink(lang),
   ]
