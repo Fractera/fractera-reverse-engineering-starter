@@ -73,7 +73,7 @@ a commit message.
 
 | Group | Mode | Skills |
 |---|---|---|
-| build-skills | build | `add-door` (a door for a neighbour: `npm run door:add` writes the route, the key and the card — you write the work), `use-i2i`, `build-widget`, `cloudflare-connection`, `connect-google-analytics`, `connect-own-domain`, `custom-design` (the gate to `design-taste-frontend` and `impeccable`), `deploy-element`, `describe-element`, `github-element`, `github-repositories`, `own-domain-sign-in`, `page-snippet`, `passport-description`, `product-quiz` (the product in product words before code; every «and also I need…» goes through it), `project-origin`, `self-review`, `soft-navigation`, `temporary-domain`, `use-auth`, `use-development-docs`, `use-element-tree`, `use-highlight`, `use-languages`, `use-machine-copy`, `use-messenger` (the gate to `ai-elements`), `use-page-tree`, `use-shadcn` (the gate to `shadcn`), `use-site-menu`, `use-tests-before-dev-finish`, `use-tools`, `use-typography`, `reverse-engineer` (Work skill of this element: study a website or an SDK with REA and write one report for the product quiz; a subagent on the strongest model) |
+| build-skills | build | `use-blocks` (a section of a page comes from the catalogue: `npm run blocks -- find` then show and add, or a request), `add-door` (a door for a neighbour: `npm run door:add` writes the route, the key and the card — you write the work), `use-i2i`, `build-widget`, `cloudflare-connection`, `connect-google-analytics`, `connect-own-domain`, `custom-design` (the gate to `design-taste-frontend` and `impeccable`), `deploy-element`, `describe-element`, `github-element`, `github-repositories`, `own-domain-sign-in`, `page-snippet`, `passport-description`, `product-quiz` (the product in product words before code; every «and also I need…» goes through it), `project-origin`, `self-review`, `soft-navigation`, `temporary-domain`, `use-auth`, `use-development-docs`, `use-element-tree`, `use-highlight`, `use-languages`, `use-machine-copy`, `use-messenger` (the gate to `ai-elements`), `use-page-tree`, `use-shadcn` (the gate to `shadcn`), `use-site-menu`, `use-tests-before-dev-finish`, `use-tools`, `use-typography`, `reverse-engineer` (Work skill of this element: study a website or an SDK with REA and write one report for the product quiz; a subagent on the strongest model) |
 | vendored | build, name only (`SOURCE.md`) | `ai-elements`, `copy-editing`, `copywriting`, `design-taste-frontend`, `humanizer` (published texts only, section «Texts»), `impeccable`, `shadcn` |
 
 **A skill starts with its process and its group** (owner of the node, 2026-10-12 and 2026-10-20: an agent that creates a skill
@@ -149,3 +149,19 @@ full address so it is clickable; it opens the page. The place lights up only whe
 delete any file or folder. Guards refuse a build that leaves it; a change of the tree itself is the person's decision.
 Something of the starting tree is gone (`npm run check:tree` lists a missing path) → the skill's section «Restore the starting
 architecture»: find the removing commit, ask the person, restore from git history or the template tag (node step 462).
+
+## Highlight addresses — every container, no exceptions
+
+The owner of the node, 2026-10-23, verbatim:
+«непоколебимый стандарт по отношению к всему коду всегда требует атрибуты для подсветки контейнеров том числе без каких-либо ограничений это распространяется на блоке и все их контейнеры».
+And the same evening: «любой код разрабатывать с этим атрибутом».
+
+- Every container you write — in a page, a widget, a tool, a component, a block — carries `data-block="<letter + 4 base36>"`. The
+  highlight of the tab «Live site» sees only `[data-block]`: a container without it cannot be pointed at, the person's task about it
+  arrives vague, and your answer cannot point at the place you changed.
+- After you write or change code, run `npm run widgets:ids` — it stamps every container that has no address; `npm run prebuild`
+  refuses one without. Never remove or rename an address that stands.
+- A block of the catalogue arrives with its addresses (`npm run blocks -- add`, the Blocks element stamps them at the source); never
+  strip them. A container the stamp does not know (your own wrapper) passes `...props` to its DOM root, and its name goes into
+  `CONTAINERS` of `scripts/stamp-widget-ids.mjs`.
+- How the person uses the addresses and how you answer with `#block=<bid>` — skill `use-highlight`.

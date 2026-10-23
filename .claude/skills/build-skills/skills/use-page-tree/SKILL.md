@@ -84,9 +84,12 @@ A production build is always the whole app; the only lever is how many route fil
 - **Which `block-*` a page may name** = the keys of `BLOCK_SET` in `lib/content/blocks/registry.tsx` — read them before you
   propose a block. A component in `components/blocks/` is not enough (✗ node step 464: an agent offered `block-cta-button`, which
   lives only inside the hero and is not in the set — the guard would refuse the page).
-- **A block** the set does not have comes from the Blocks element: `npx shadcn add @fractera/block-<name>` (the address in
-  `BLOCKS_REGISTRY_URL`), then one line in `lib/content/blocks/registry.tsx`, its type in `lib/content/blocks/types.ts` and its
-  Markdown line in `lib/aio/blocks-to-markdown.ts`. Never draw a section by hand.
+- **A block** the set does not have comes from the Blocks element — skill `use-blocks`: `npm run blocks -- find "<need>"`, then
+  `npm run blocks -- add <block>` (it finds the Blocks element through the core and writes the line in
+  `lib/content/blocks/registry.tsx`, the type in `lib/content/blocks/types.ts` and the Markdown case in `lib/aio/blocks-to-markdown.ts`
+  from the block's card). Nothing fits — `npm run blocks -- request "<need>"`. Never draw a section by hand.
+  🪦 Here stood «`npx shadcn add @fractera/block-<name>` (the address in `BLOCKS_REGISTRY_URL`)» — measured 2026-10-23 (node step
+  577-4): no element of the node had that address, so the command worked nowhere.
 - A public page has a Markdown copy for agents (`<page>/index.md`, `llms-full.txt`) built from this sequence; a `widget-*`
   in it brings its own text through `markdown.ts` (skill `use-machine-copy`).
 

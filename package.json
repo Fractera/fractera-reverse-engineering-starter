@@ -69,7 +69,8 @@
     "check:page-sequence": "node scripts/check-page-sequence.mjs",
     "check:a2a-card": "node scripts/check-a2a-card.mjs",
     "check:tree": "node scripts/check-tree.mjs",
-    "check:instruction": "node scripts/check-instruction-modes.mjs"
+    "check:instruction": "node scripts/check-instruction-modes.mjs",
+    "blocks": "node scripts/blocks.mjs"
   },
   "dependencies": {
     "@a2a-js/sdk": "1.3.0",
