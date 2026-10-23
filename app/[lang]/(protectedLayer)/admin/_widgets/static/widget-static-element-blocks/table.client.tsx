@@ -103,7 +103,7 @@ export function ElementBlocksTable({ rows, ui, scope, showSection = true }: { ro
                     <span className="text-muted-foreground">{r.built ? ui.noPreview : ui.waitsBuild}</span>
                   )}
                 </TableCell>
-                {showSection && <TableCell data-block="ebt13"><Cut text={r.section} width={130} /></TableCell>}
+                {showSection && <TableCell data-block="ebt13"><a href={r.href.slice(0, r.href.lastIndexOf("/"))} className="hover:underline"><Cut text={r.section} width={130} /></a></TableCell>}
                 <TableCell data-block="ebt14"><Cut text={r.description || "—"} /></TableCell>
                 <TableCell data-block="ebt15">
                   <Badge data-block="kgfpj" variant={r.catalogue ? "default" : "outline"}>{r.origin}</Badge>
