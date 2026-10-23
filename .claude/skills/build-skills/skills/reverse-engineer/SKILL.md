@@ -76,8 +76,27 @@ stopped. A challenge page, «unusual activity» or 429 stops the browser — rep
 
 **What goes into the report — structure, never content:** screens and their purpose, elements and fields in your own words, states,
 validation messages you triggered without sending, transitions, gates (an upgrade wall, a limit), points of no return, and requests as
-method and path template. Never people's names, their texts, messages or any value. Screenshots stay in the task folder and are deleted
-when the person has confirmed the quiz items.
+method and path template. Never people's names, their texts, messages or any value.
+
+**Every screen and state you study goes into the node's storage** (owner 2026-10-23: «создавать скриншоты и охранять их в наш файловое
+хранилище чтобы в будущем, разрабатываем интерфейс можно было подсматривать кнопки карточки»): `npm run shot -- --task <task id> --name
+<screen>` takes the page open in the study browser (the whole page; `--viewport` for the visible part) and prints its storage id and
+link; a screenshot the person gave — `--file <png>`. Put `{ "id", "file" }` into `screens[].shot`. They are kept for looking at buttons
+and cards later, never for copying a design (node law 538). No browser running → the command refuses, nothing is uploaded.
+
+## Continue a study — the next part of a series (node step 556-14)
+
+The main agent asks «Continue the study <series> …» when the person pressed the wide «Continue the study» under the decision.
+- Read what is missing: the core door `GET /api/node/reverse-report?job=<series>` with the node key (`X-Node-Key` = `SETTINGS_SECRET`) —
+  `verdict.pages` (what to capture) and `verdict.signIn` (the test account to use). Parts already done: the list of the same door.
+- **One scenario per part** — the 1–4 connected pages that close the largest observable gap of the decision, from entry to result.
+- `verdict.signIn` → `npm run browser:start -- <url> --site <site>` (the confirmed account; the guard lets only reads through). No
+  confirmed account → stop and say so: the person signs in from the orange card on the page.
+- Each screen and each state of the scenario → `npm run shot`. A point of no return (publish, pay, delete) → stop before it, shoot the
+  screen, record it in `pointsOfNoReturn`.
+- Write the part **once, at the end**: the folder `reports/<series>-<n>/` (n = the next free part number), `report.json` in the form
+  below with `"series": "<series>", "part": <n>` and only what this part saw, `report.md` for a person. ✗ The first study spent 5.2
+  million tokens rewriting its report — write it in one pass.
 
 ## The REA command by what the product is
 
@@ -117,6 +136,8 @@ REA answers `modules: 0` — check the counts before you write anything from the
 ```json
 {
   "task": "<task-id>",
+  "series": "<the first task of the series; only in a part 2, 3…>",
+  "part": 2,
   "target": { "kind": "website | npm-sdk | python-package | dotnet | android | wasm | native | other", "name": "", "version": "", "source": "<url or package@version>" },
   "summary": "what the product does, two or three sentences",
   "roles": [{ "name": "", "can": [""] }],
@@ -128,7 +149,7 @@ REA answers `modules: 0` — check the counts before you write anything from the
   "sdk": { "modules": [""], "public_functions": [{ "name": "", "does": "" }], "endpoints": [""], "auth": "", "dependencies": [""] },
   "limits": [""],
   "evidence": [{ "claim": "", "evidence_id": "", "command": "" }],
-  "screens": [{ "id": "SC-01", "name": "", "purpose": "", "entry": "", "elements": [""], "states": [""], "forms": [{ "fields": [""], "validation": [""] }], "gates": [""], "mode": "A | B | C", "basis": "observed | inferred | unknown" }],
+  "screens": [{ "id": "SC-01", "name": "", "purpose": "", "entry": "", "elements": [""], "states": [""], "forms": [{ "fields": [""], "validation": [""] }], "gates": [""], "mode": "A | B | C", "basis": "observed | inferred | unknown", "shot": { "id": "", "file": "/api/media/<id>/file" } }],
   "transitions": [{ "from": "SC-01", "action": "", "to": "SC-02", "mode": "A | B | C" }],
   "pointsOfNoReturn": [{ "screen": "SC-03", "action": "", "after": "unknown | seen in mode A or B" }],
   "coverage": { "questions": 0, "answered": 0, "partly": 0, "open": 0 },

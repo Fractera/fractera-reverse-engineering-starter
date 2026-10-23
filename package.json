@@ -8,6 +8,7 @@
     "browser:start": "node scripts/browser.mjs start",
     "browser:stop": "node scripts/browser.mjs stop",
     "browser:status": "node scripts/browser.mjs status",
+    "shot": "node scripts/shot.mjs",
     "pages:refresh": "node scripts/refresh-pages.mjs",
     "describe:publish": "node scripts/describe-publish.mjs",
     "door:add": "node scripts/door-add.mjs",
