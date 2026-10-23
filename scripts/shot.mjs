@@ -1,4 +1,4 @@
-// npm run shot -- --task <task id> --name <screen name> [--file <png>] [--viewport] — a screenshot into the node's storage (node step 556-14).
+// npm run shot -- --task <task id> --name <screen name> [--file <png|jpg>] [--viewport] — a screenshot into the node's storage (node step 556-14).
 //
 // Owner 2026-10-23: «он может создавать скриншоты и охранять их в наш файловое хранилище чтобы в будущем, разрабатываем интерфейс можно
 // было подсматривать кнопки карточки и прочее инструменты». The screen of the running study browser (npm run browser:start …) is taken
@@ -57,9 +57,12 @@ async function capture() {
 const got = file
   ? (existsSync(file) ? { png: readFileSync(file), url: '', title: basename(file) } : fail(2, `no file ${file}`))
   : await capture()
-if (got.png.length < 1000 || got.png.subarray(1, 4).toString() !== 'PNG') fail(1, 'not a PNG image')
+// A PNG from the browser, or a PNG/JPEG the person (or a screenshot tool) gave with --file.
+const isPng = got.png.subarray(1, 4).toString() === 'PNG'
+const isJpeg = got.png[0] === 0xff && got.png[1] === 0xd8 && got.png[2] === 0xff
+if (got.png.length < 1000 || (!isPng && !isJpeg)) fail(1, 'not a PNG or JPEG image')
 const form = new FormData()
-form.append('file', new Blob([got.png], { type: 'image/png' }), `${task}-${name.replace(/[^0-9a-z-]+/gi, '-').toLowerCase()}.png`)
+form.append('file', new Blob([got.png], { type: isPng ? 'image/png' : 'image/jpeg' }), `${task}-${name.replace(/[^0-9a-z-]+/gi, '-').toLowerCase()}.${isPng ? 'png' : 'jpg'}`)
 form.append('title', `${task} · ${name}`)
 let res
 try {
