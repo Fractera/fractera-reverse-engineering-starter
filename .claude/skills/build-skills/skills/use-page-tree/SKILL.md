@@ -90,6 +90,8 @@ A production build is always the whole app; the only lever is how many route fil
   from the block's card). Nothing fits — `npm run blocks -- request "<need>"`. Never draw a section by hand.
   🪦 Here stood «`npx shadcn add @fractera/block-<name>` (the address in `BLOCKS_REGISTRY_URL`)» — measured 2026-10-23 (node step
   577-4): no element of the node had that address, so the command worked nowhere.
+  The blocks of this element, by section, with a Preview of each: `/<lang>/admin/blocks` (the architect opens it from the core,
+  «Build → Blocks»).
 - A public page has a Markdown copy for agents (`<page>/index.md`, `llms-full.txt`) built from this sequence; a `widget-*`
   in it brings its own text through `markdown.ts` (skill `use-machine-copy`).
 
