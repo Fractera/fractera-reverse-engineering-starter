@@ -26,7 +26,7 @@ export function BlockSectionPage({ lang, section }: { lang: string; section: str
   const s = blockSections().find((x) => x.id === section)
   const title = sectionTitle(section, lang)
   return (
-    <main data-block="ebs01" data-app-column className="mx-auto w-full max-w-5xl flex-1 px-6 py-8">
+    <main data-block="ebs01" data-app-column className="mx-auto w-full max-w-5xl flex-1 px-6 pt-[var(--page-py-work)] pb-[var(--page-py-content)]">
       <Breadcrumbs lang={lang} trail={[{ label: wordsIn(page, lang).title, href: `/${lang}/admin/blocks` }, { label: title }]} />
       <H1 data-block="ebs02" className="mt-6">{title}</H1>
       {s?.purpose && <P data-block="ebs03" className="mt-2 text-muted-foreground">{s.purpose}</P>}
@@ -41,7 +41,7 @@ export function BlockPreviewPage({ lang, section, name }: { lang: string; sectio
   const ui = elementBlocksUi(lang)
   const node = name in BLOCK_SET ? previewNode(name, lang) : null
   return (
-    <main data-block="ebp01" data-app-column className="mx-auto w-full max-w-5xl flex-1 px-6 py-8">
+    <main data-block="ebp01" data-app-column className="mx-auto w-full max-w-5xl flex-1 px-6 pt-[var(--page-py-work)] pb-[var(--page-py-content)]">
       <Breadcrumbs
         lang={lang}
         trail={[
