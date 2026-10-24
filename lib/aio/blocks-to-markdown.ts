@@ -49,6 +49,8 @@ function lines(block: Block, widget?: WidgetText): string[] {
     // 423: типографика элемента — сама почти Markdown.
     case 'block-faq':
       return [`## ${block.title}`, ...block.items.flatMap((f) => ['', `**${f.q}**`, f.a])]
+    case 'block-flow':
+      return [`## ${block.title}`, ...(block.note ? ['', block.note] : []), '', ...block.steps.map((s, i) => `${i + 1}. **${s.title}** ${s.text}`)]
     case 'text-h2':
       return [`## ${block.text}`]
     case 'text-h3':

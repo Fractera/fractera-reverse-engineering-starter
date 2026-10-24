@@ -14,3 +14,5 @@ Format, one line per item, address first:
 ```
 - `<path or page>` — <what is missing> · <why it is not done; the person's word if any> · <date>
 ```
+
+- `/` (home page, en and ru) — a cards section for three kinds of what the workshop studies (pages, flows, the SDK); not drawn by hand · the Blocks element has no `block-cards` yet, request `req-20261024-b654d0` filed · 2026-10-24

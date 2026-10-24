@@ -1,0 +1,93 @@
+{
+  "name": "block-flow",
+  "component": "Flow",
+  "pageKind": true,
+  "categories": [
+    "how-it-works"
+  ],
+  "role": "body",
+  "placement": {
+    "page": true,
+    "inside": []
+  },
+  "accepts": null,
+  "repeat": "not-adjacent",
+  "mode": [
+    "persuade",
+    "read"
+  ],
+  "use": "How something works in exactly three steps that follow each other; the order is the content. Steps light up in turn with pure CSS.",
+  "avoid": "Items without an order (use block-cards); more or fewer than three steps.",
+  "slots": {
+    "title": {
+      "maxChars": 80
+    },
+    "note": {
+      "maxChars": 200
+    },
+    "steps": {
+      "min": 3,
+      "max": 3,
+      "fields": {
+        "title": {
+          "maxChars": 40
+        },
+        "text": {
+          "maxChars": 160
+        }
+      }
+    }
+  },
+  "props": "{ kind: 'block-flow'; title: string; badge?: string; note?: string; blockKey?: string; steps: [{ title: string; text: string }, { title: string; text: string }, { title: string; text: string }] }",
+  "markdown": "case 'block-flow':\n      return [`## ${block.title}`, ...(block.note ? ['', block.note] : []), '', ...block.steps.map((s, i) => `${i + 1}. **${s.title}** ${s.text}`)]",
+  "variants": [],
+  "data": "static",
+  "requires": [],
+  "interactive": "none",
+  "media": "none",
+  "headings": [
+    "h2",
+    "h3"
+  ],
+  "rtl": "untested",
+  "weight": "medium",
+  "band": false,
+  "alternatives": [],
+  "source": {
+    "origin": "own",
+    "license": "MIT"
+  },
+  "origin": {
+    "project": "base",
+    "request": null
+  },
+  "version": "1.0.0",
+  "status": "published",
+  "cases": [
+    {
+      "title": "Set up a service in three steps",
+      "mode": "persuade",
+      "position": "body",
+      "why": "Each step needs the one before it, so the order carries the meaning.",
+      "props": {
+        "title": "Set it up in three steps",
+        "note": "A provider without its keys stays off.",
+        "steps": [
+          {
+            "title": "Open the sign-in service",
+            "text": "It is on by default."
+          },
+          {
+            "title": "Add Google",
+            "text": "Set the client ID and secret on the node."
+          },
+          {
+            "title": "Add the magic link",
+            "text": "Set the Resend API key."
+          }
+        ]
+      }
+    }
+  ],
+  "docs": "npx shadcn add @fractera/block-flow. In a page: { \"kind\": \"block-flow\", \"title\": \"…\", \"steps\": [ three { \"title\", \"text\" } ] }. Styles .flow* come with the theme."
+}

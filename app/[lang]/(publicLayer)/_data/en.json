@@ -1,11 +1,64 @@
 {
-  "title": "Reference native template",
-  "description": "The reference starter template of a Fractera native element.",
-  "keywords": "",
+  "title": "Reverse-engineering workshop",
+  "description": "Study how a product you like is built, and turn the study into the first stages of your own product.",
+  "keywords": "reverse engineering, product study, product planning",
   "blocks": [
     {
-      "kind": "widget-static-reference-title",
-      "bid": "rf001"
+      "kind": "block-hero-centered",
+      "pill": "Reverse-engineering workshop",
+      "title": "Study a product you admire. Build your own on its ideas.",
+      "description": "Send the address of a site or app you like. We study how it is built: its pages, its flows and the SDK it ships. Then we write one report that becomes the first stages of your own product.",
+      "cta": { "label": "See how it works", "href": "#how-it-works-t" },
+      "bid": "wh001"
+    },
+    {
+      "kind": "block-flow",
+      "blockKey": "how-it-works",
+      "title": "From an address to your first stages",
+      "note": "Each step needs the one before it.",
+      "steps": [
+        { "title": "Send an address", "text": "Send the address of a site or app, or screenshots if its rules forbid study." },
+        { "title": "We study it", "text": "We look at its pages, its flows and the SDK it ships, the way a user and a developer would see them." },
+        { "title": "You get a report", "text": "The report describes how the product works, in our own words. The product quiz turns it into stages 0 to N of your product." }
+      ],
+      "bid": "wf001"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "boundaries",
+      "title": "What we study, and what we never copy",
+      "bid": "ws001"
+    },
+    {
+      "kind": "text-p",
+      "text": "A report describes how a product is built and how its parts work together. It is written in our own words.",
+      "bid": "wp001"
+    },
+    {
+      "kind": "text-list",
+      "items": [
+        "Studied: pages, flows from start to finish, and the SDK in the form it ships to developers.",
+        "Never copied: the code, texts, images, design and data of the product.",
+        "Never done: signing in to someone else's account, or getting past a protection.",
+        "When a site forbids study, the source becomes screenshots that you take yourself."
+      ],
+      "bid": "wl001"
+    },
+    {
+      "kind": "text-p",
+      "text": "The report goes to the product quiz, where you decide what your own product will be. The study gives you a starting point, not a copy.",
+      "bid": "wp002"
+    },
+    {
+      "kind": "block-faq",
+      "title": "Questions before you try",
+      "items": [
+        { "q": "Do I need an account on the site I study?", "a": "Only for pages behind a sign-in, and only in a test account that belongs to you. We never see a password." },
+        { "q": "Will my product look like theirs?", "a": "No. Their design is not copied. The report describes the ideas behind the product, and your product gets its own design." },
+        { "q": "What do I get at the end?", "a": "One report in plain words, which the product quiz turns into the first stages of your product." },
+        { "q": "Can you study any site?", "a": "Not every site allows it. If its rules forbid study, send screenshots instead." }
+      ],
+      "bid": "wq001"
     }
   ]
 }
