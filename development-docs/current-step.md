@@ -2,7 +2,7 @@
 
 **Active step:** none.
 
-**Last change:** step 1, the home page (landing) in `en` and `ru`, built from the blocks catalogue — `development-docs/steps-done/1.md`. Its commit is being recorded here in the next commit.
+**Last change:** step 1, the home page (landing) in `en` and `ru`, built from the blocks catalogue — `development-docs/steps-done/1.md`. Its commit: `eadbd81`.
 
 **Next action:** wait for the person's task. A visual check of the page in the tab «Live site» and «Deploy» are the person's decisions.
 
